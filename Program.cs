@@ -9,10 +9,11 @@ namespace ConnectFourFinalProject
 
         public Player(string playerName)
         {
-            if(playerName == "")
+            if (playerName == "")
             {
                 PlayerOne = "Player-1";
-            } else
+            }
+            else
             {
                 PlayerOne = playerName;
             }
@@ -35,7 +36,7 @@ namespace ConnectFourFinalProject
         protected const int numColumns = 7;
         protected const int numRows = 6;
         protected static char[,] Board = new char[numRows, numColumns];
-        
+
         public GameBase(string playerOneName, string playerTwoName) : base(playerOneName)
         {
             if (playerTwoName == "")
@@ -51,8 +52,8 @@ namespace ConnectFourFinalProject
         protected static void SetupANewGame()
         {
             Turn = 2;
-            PlayerLetter = 'O';
-            for(int i = 0; i < numRows; i++)
+            PlayerLetter = '♦';
+            for (int i = 0; i < numRows; i++)
             {
                 columnFull[i] = false;
                 for (int j = 0; j < numColumns; j++)
@@ -77,7 +78,7 @@ namespace ConnectFourFinalProject
 
         protected static void ChangePlayerLetter()
         {
-            PlayerLetter = (PlayerLetter == 'O' ? 'X' : 'O');
+            PlayerLetter = (PlayerLetter == '♦' ? '♠' : '♦');
         }
 
         public override string GetPlayerName()
@@ -96,7 +97,7 @@ namespace ConnectFourFinalProject
                 Console.Write("| ");
                 for (int j = 0; j < numColumns; j++)
                 {
-                    Console.Write($"{Board[i, j]} ") ;
+                    Console.Write($"{Board[i, j]} ");
                 }
                 Console.Write('|');
                 Console.WriteLine();
@@ -108,7 +109,7 @@ namespace ConnectFourFinalProject
         {
             int index = numRows - 1;
             char pl = Board[index, columninserted]; // pl for Player Letter
-            while ((pl == 'X' || pl == 'O') && index >= 0)
+            while ((pl == '♠' || pl == '♦') && index >= 0)
             {
                 index--;
                 if (index >= 0) pl = Board[index, columninserted];
@@ -128,9 +129,9 @@ namespace ConnectFourFinalProject
         protected bool FullBoard()
         {
             bool boardFull = true;
-            for (int i = 0; i < numColumns;i++)
+            for (int i = 0; i < numColumns; i++)
             {
-                if (Board[0,i] == '*')
+                if (Board[0, i] == '*')
                 {
                     boardFull = false;
                 }
@@ -143,7 +144,7 @@ namespace ConnectFourFinalProject
             bool winnerBool = false;
 
             //Horizontal lines
-            for(int row = 0; row < numRows; row++)
+            for (int row = 0; row < numRows; row++)
             {
                 for (int column = 0; column < 4; column++)
                 {
@@ -342,7 +343,7 @@ namespace ConnectFourFinalProject
                 string choice = Console.ReadLine();
                 choice = choice.Trim().ToLower();
 
-                if(choice == "exit")
+                if (choice == "exit")
                 {
                     break;
                 }
@@ -353,7 +354,7 @@ namespace ConnectFourFinalProject
                     newGame.Play();
 
                 }
-                else if(choice == "1")
+                else if (choice == "1")
                 {
                     Console.Clear();
                     Console.WriteLine("Type the nickname for player one or press enter to use the default name");
