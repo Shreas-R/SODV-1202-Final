@@ -90,7 +90,7 @@ namespace ConnectFourFinalProject
 
         protected virtual void DisplayBoard()
         {
-            Console.WriteLine("Connect 4 Game Development Project: ");
+            Console.WriteLine("Connect 4 Project: ");
             Console.WriteLine();
             for (int i = 0; i < numRows; i++)
             {
