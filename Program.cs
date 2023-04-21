@@ -58,7 +58,7 @@ namespace ConnectFourFinalProject
                 columnFull[i] = false;
                 for (int j = 0; j < numColumns; j++)
                 {
-                    Board[i, j] = '*';
+                    Board[i, j] = '#';
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace ConnectFourFinalProject
             bool boardFull = true;
             for (int i = 0; i < numColumns; i++)
             {
-                if (Board[0, i] == '*')
+                if (Board[0, i] == '#')
                 {
                     boardFull = false;
                 }
